@@ -114,7 +114,7 @@ function container_move(event){
     if(lastX == -10){
       lastX = x;
     }else{
-      if(lastX + 20 < x || lastX - 20 > x){
+      if(lastX + 100 < x || lastX - 100 > x){
         var excedentLen = t - w;
         var percentMouse = x / w;
         var parcialEx = excedentLen * percentMouse;
