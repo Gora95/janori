@@ -65,6 +65,7 @@ var lastScrollHeight = 0;
 $(window).scroll(function(event){
   var hf = $(window).scrollTop();
   var height = $(window).height();
+  var bottom = hf + height;
   /*var iX = 0, iY = 0;
   var h = hf / $(window).height();
   h = h * 20;
@@ -75,6 +76,16 @@ $(window).scroll(function(event){
     $(".main-title").css("opacity", op);
   }
 
+  if($("#services").offset().top + 150 < bottom){
+    $('#nlogo').removeClass('active');
+    $('#ncontainer').removeClass('active');
+  }else if($("#about-us").offset().top + 10 < bottom){
+    $('#nlogo').addClass('active');
+    $('#ncontainer').addClass('active');
+  }else{
+    $('#nlogo').removeClass('active');
+    $('#ncontainer').removeClass('active');
+  }
 
   if($("#contact").offset().top - 50 < hf){
     $('.section-counter a').parent().removeClass('section-counter-active');

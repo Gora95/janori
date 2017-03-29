@@ -90,6 +90,55 @@ h2{
 	text-align: center;
 }
 
+.nav-logo{
+	background: url('../img/Wolf_white.png'); /* Your icon */
+    position: relative; /* Allows an absolute positioned psuedo element */
+    background-size: 90%;
+    background-repeat: no-repeat;
+	opacity: 1;
+	width: 100%;
+	height: 100px;
+	
+	/*border: 2px solid white;
+	border-radius: 100%;
+	background: black;*/
+	padding: 4px;
+
+	top: -10px;
+	margin-left: 5%;
+	transition-duration: 0.3s;
+
+	
+}
+
+.invert-color{
+	transition-duration: 0.3s;
+
+	/*-webkit-filter: invert(0%) drop-shadow(0 0px 20px rgba(0,0,0,1));
+    -moz-filter: invert(0%) drop-shadow(0 0px 20px rgba(0,0,0,1));
+    -ms-filter: invert(0%) drop-shadow(0 0px 20px rgba(0,0,0,1));
+    -o-filter: invert(0%) drop-shadow(0 0px 20px rgba(0,0,0,1));*/
+  	filter: invert(0%); /*drop-shadow(0 0px 30px rgba(0,0,0,1));*/
+}
+.invert-color.active{
+	/*-webkit-filter: invert(100%) drop-shadow(0 0px 20px rgba(255,255,255,1));
+    -moz-filter: invert(100%) drop-shadow(0 0px 20px rgba(255,255,255,1));
+    -ms-filter: invert(100%) drop-shadow(0 0px 20px rgba(255,255,255,1));
+    -o-filter: invert(100%) drop-shadow(0 0px 20px rgba(255,255,255,1));*/
+  	filter: invert(100%); /*drop-shadow(0 0px 30px rgba(255,255,255,1));*/
+}
+
+/*.nav-logo:after{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0px;
+    left: 0px;
+    content: ''; 
+    background: red;
+    mix-blend-mode: multiply; 
+}*/
+
 .main-intro{
 	position: fixed;
 	left: 0px; top: 0px;
@@ -179,6 +228,7 @@ h2{
 	/*border: 2px solid white;
 	border-radius: 100%;
 	background: black;*/
+
 	padding: 4px;
 
 	top: 10%;
@@ -195,8 +245,9 @@ h2{
 	left: 50%;
 	transform: translateX(-50%);
 }
+
 .nav-o>div:last-child>img{
-	position: absolute;
+	position: relative;
 	max-width: 100%;
 	height: auto;
 	/*left: -50%;
@@ -251,8 +302,14 @@ h2{
 .nav-container>div:hover img{
 	transform: rotateY(180deg);
 }
-.nav-o>div:last-child img{
+/*.nav-o>div:last-child img{
 	transform: rotateY(0deg);
+}*/
+
+.nav-o:hover>.nav-container div>img{
+	border: 2px solid white;
+	border-radius: 100%;
+	background: black;
 }
 
 .nav-o:hover>.nav-container div:nth-child(1){
@@ -412,7 +469,7 @@ h2{
 .left-about-us img{
 	position: absolute;
 	height: 100%;
-	transform: 	translateX(-10%);
+	transform: 	translateX(-10%)
 				scaleX(0.9);
 
 }
@@ -549,6 +606,7 @@ h2{
 }
 
 .services-block{
+	transform-style: preserve-3d;
 	position: relative;
 	display: inline-block;
 	text-align: center;
@@ -578,9 +636,18 @@ h2{
 	width: 50%;
 	height: 40%;
 	left: 25%;
-	top: 20%;
+	top: 15%;
 
 }
+.services-block img+img{
+	position: absolute;
+	width: 30%;
+	height: 20%;
+	left: 35%;
+	top: 25%;
+
+}
+
 .services-block h4{
 	position: absolute;
 	top: 61%;
@@ -600,10 +667,6 @@ h2{
 	font-family: helveticaNeueLight;
 	transform: translateX(-50%);
 	transition-duration: 0.3s;
-}
-.services-block button:hover{
-	/*background: ;*/
-	/*color: white;*/
 }
 
 
@@ -697,18 +760,193 @@ h2{
 	opacity: 1;
 }
 
+.3d-perspective{
+	perspective-origin: 50% 50%;
+	perspective: 1000px;
+}
+
+.mv-radial-xz{
+	width: 30px;
+	height: 20px;
+	transform-origin: 50% 50% -40px;
+	animation: 8s radialXZ linear infinite;
+}
+.mv-radial-xz-delay{
+	width: 30px;
+	height: 20px;
+	transform-origin: 50% 50% -40px;
+	animation: 8s radialXZ linear infinite;
+	animation-delay: 2.5s;
+}
+
+.mv-search-mime{
+	animation: 10s searchMime infinite;
+}
+
+.mv-slash-shake{
+	animation: 3s slashShake infinite;
+}
+
+.mv-balance{
+	animation: 5s balance infinite;
+}
+.mv-self-rotate-y{
+	animation: 8s selfRotateY infinite;
+}
+
+.useless-shadow-circle{
+	position: absolute;
+	width: 30%;
+	height: 50px;
+	bottom: 35%;
+	left: 35%;
+	border-radius: 100%;
+	background: rgba(0,0,0,0.6);
+	transform: 	translateZ(60px)
+				rotateX(80deg);
+}
 
 /* Animations */
 
 @keyframes radialXZ{
 	0%{
-		/*transform: translateX(0)
-				   ;*/
+		transform: rotateY(0deg)
+				   translateZ(60px)
+				   scale(1)
+				   ;
+		opacity: 1;
 	}
+	25%{
+		transform: rotateY(90deg)
+				   translateZ(60px)
+				   translateX(-100px)
+				   scale(0.8)
+				   ;
+
+		opacity: 0.7;
+	}
+	50%{
+		transform: rotateY(180deg)
+				   translateZ(-200px)
+				   scale(0.7)
+				   ;
+		opacity: 0.3;
+	}
+	75%{
+		transform: rotateY(270deg)
+				   translateZ(60px)
+				   translateX(100px)
+				   scale(0.8)
+				   ;
+		opacity: 0.7;
+	}
+	100%{
+		transform: rotateY(360deg)
+				   translateZ(60px)
+				   scale(1)
+				   ;
+		opacity: 1;
+	}
+}
+
+@keyframes searchMime{
+	0%{
+		transform: translate(0px, 0px);
+	}
+	9%{
+		transform: translate(30px, -20px)
+					rotateZ(-10deg);
+	}
+	21%{
+		transform: translate(-70px, -10px)
+					rotateZ(-20deg);
+	}
+	33%{
+		transform: translate(-70px, 40px)
+					rotateZ(-20deg);	
+	}
+	48%{
+		transform: translate(-5px, 30px)
+					rotateZ(20deg);
+	}
+	54%{
+		transform: translate(0px, 0px);
+	}
+	100%{
+		transform: translate(0px, 0px);	
+	}
+
+}
+
+@keyframes slashShake{
+	0%{
+		transform: rotateZ(0deg);
+	}
+	2%{
+		transform: rotateZ(5deg);
+	}
+	4%{
+		transform: rotateZ(-3deg);
+	}
+	6%{
+		transform: rotateZ(2deg);
+	}
+	8%{
+		transform: rotateZ(0deg);
+	}
+}
+
+@keyframes selfRotateY{
+	0%{
+		transform: 	translateZ(100px)
+					rotateY(0deg);
+	}
+	15%{
+		transform: 	translateZ(100px)
+					rotateY(90deg);
+	}
+	30%{
+		transform: 	translateZ(100px)
+					rotateY(180deg);	
+	}
+	45%{
+		transform: 	translateZ(100px)
+					rotateY(270deg);
+	}
+	60%{
+		transform: 	translateZ(100px)
+					rotateY(360deg);
+	}
+	100%{
+		transform: 	translateZ(100px)
+					rotateY(360deg);
+	}
+}
+
+@keyframes balance{
+	40%, 60%{
+		transform: scale(1)
+				   rotate(0deg);
+	}
+	44%{
+		transform: scale(0.7)
+				   rotate(6deg);
+	}
+	46%, 54%{
+		transform: scale(1.1)
+				   rotate(-6deg);
+	}
+	50%, 58%{
+		transform: scale(1.1)
+				   rotate(6deg);
+	}
+
 }
 
 .circle-emitter{
 	position: relative;
+	top: 105%;
+	left: -5%;
 }
 .circle-emitter:before{
 	position: absolute;
@@ -737,7 +975,7 @@ h2{
 	border-radius: 100%;
 	opacity: 0;
 	animation: circleEmitterx2 linear 4s infinite;
-	animation-delay: 0.6s;
+	animation-delay: 0.4s;
 	animation-play-state: running;
 }
 .circle-emitter:hover:before, .circle-emitter:hover:after{
