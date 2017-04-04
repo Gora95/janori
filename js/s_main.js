@@ -66,17 +66,23 @@ $(window).scroll(function(event){
   var hf = $(window).scrollTop();
   var height = $(window).height();
   var bottom = hf + height;
+  
   /*var iX = 0, iY = 0;
-  var h = hf / $(window).height();
+  var h = (hf) / $("#contact").height;
   h = h * 20;
   var fY = iY + h;
-  $("body").css("background-position", iX + "% " + fY + "%")*/
+  $("#contact").css("background-position", iX + "% " + fY + "%")*/
+
+
   if(hf > 0){
     var op = 1 - hf / height * 3 / 2
     $(".main-title").css("opacity", op);
   }
 
-  if($("#services").offset().top + 150 < bottom){
+  if($('#contact').offset().top + 10 < bottom){
+    $('#nlogo').addClass('active');
+    $('#ncontainer').addClass('active');
+  }else if($("#services").offset().top + 150 < bottom){
     $('#nlogo').removeClass('active');
     $('#ncontainer').removeClass('active');
   }else if($("#about-us").offset().top + 10 < bottom){
@@ -139,14 +145,6 @@ function container_move(event){
         lastX = x;
       }
     }
-
-
-
-    /*cline.animate(
-      { left: -fx + 'px' },
-      { queue:false, duration:20, easing:'linear' }
-    );
-    /*console.log(parcialEx);*/
 }
 var servElement;
 var t;
