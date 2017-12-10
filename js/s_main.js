@@ -24,7 +24,7 @@ $( ".floating-contact-tab" ).click(function() {
   var seconds = Math.floor((t / 1000) % 60);
   var minutes = Math.floor((t / 1000 / 60) % 60);
   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  
+
   var month = d.getMonth() + 1;
   var year = d.getYear();
   var day = d.getDay();
@@ -66,7 +66,7 @@ $(window).scroll(function(event){
   var hf = $(window).scrollTop();
   var height = $(window).height();
   var bottom = hf + height;
-  
+
   /*var iX = 0, iY = 0;
   var h = (hf) / $("#contact").height;
   h = h * 20;
@@ -167,25 +167,3 @@ $(document).ready(function(){
     var xPos = (w - blockWidth)/2 - 15;
     cline.animate({left: xPos + 'px'}, 'fast');
 });*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
